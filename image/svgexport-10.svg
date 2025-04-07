@@ -1,0 +1,5 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="icon" width="21"  height="32" ><defs><symbol id="icon-cart" viewBox="0 0 21 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="0.7304" d="M3.594 7.377v0c0-3.873 3.139-7.012 7.012-7.012v0c3.873 0 7.012 3.139 7.012 7.012v1.614h2.695c0.298 0 0.539 0.241 0.539 0.539v21.566c0 0.298-0.241 0.539-0.539 0.539h-19.408c-0.298 0-0.539-0.241-0.539-0.539v-21.566c0-0.298 0.241-0.539 0.539-0.539h2.695zM4.137 10.069h-2.694v20.488h18.33v-20.488h-15.635zM16.539 8.991v-1.614c0-3.276-2.655-5.931-5.931-5.931v0c-3.276 0-5.931 2.655-5.931 5.931v1.614z"></path>
+</symbol></defs>
+                    <use xlink:href="#icon-cart"></use>
+                </svg>
