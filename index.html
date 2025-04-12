@@ -108,23 +108,24 @@
             <h1>Login</h1>
             <p>Welcome back! Log in to your account</p>
             
-            <div class="input-container">
+            <div class="input-container" >
                 <img src="image/people.png" alt="User Icon">
-                <input type="text" placeholder="Username" class="styled-input">
+                <input type="text" placeholder="Username" class="styled-input" id="checkUsername" >
             </div>
 
             <div class="input-container">
                 <img src="image/unlock.png" alt="Password Icon">
-                <input type="password" placeholder="Password" class="styled-input">
+                <input type="password" id="passwordInput" placeholder="Password" class="styled-input">
             </div>
+            <div id="result"></div>
             
-            <p class="mt-2">
+            <p class="mt-2 ">
                 <a class="text-decoration-none text-danger" href="#">Forgot password?</a>
             </p>
             
-            <a href="index3.html">
-                <button class="btn-custom mt-3">Login</button>
-            </a>
+                <button class="btn-custom mt-3" onclick="checkPassword()">Login</button>
+            
+            
             
             <div class="links mt-3 text-center flex-wrap">
                 <span>Don't have an account?</span>
@@ -133,5 +134,49 @@
         </div>
     </section>
 </body>
+<script>
+    function checkPassword() {
+        // Get input values
+        let Password = document.getElementById("passwordInput").value;
+        let user = document.getElementById("checkUsername").value;
+        let result = document.getElementById("result");
 
+        // Clear previous error messages
+        result.innerHTML = "";
+
+        // Username validation
+        if (user == "") {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Username can't be empty.</p>`;
+            return;
+        } else if (user.length < 4) {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Username is invalid (must be at least 4 characters).</p>`;
+            return;
+        }
+
+        // Password validation
+        if (Password == "") {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Password can't be empty.</p>`;
+            return;
+        } else if (Password.length < 8) {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Password must be at least 8 characters long.</p>`;
+            return;
+        } else if (!/[A-Z]/.test(Password)) {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one uppercase letter.</p>`;
+            return;
+        } else if (!/[a-z]/.test(Password)) {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one lowercase letter.</p>`;
+            return;
+        } else if (!/[0-9]/.test(Password)) {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one number.</p>`;
+            return;
+        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(Password)) {
+            result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one special character.</p>`;
+            return;
+        }
+
+        // If all validations pass
+        alert("Login successful!");
+        window.location.href = "index3.html"; // Redirect to another page
+    }
+</script>
 </html>
