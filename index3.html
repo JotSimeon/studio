@@ -79,31 +79,57 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="image/jot1.jpeg" class="rounded-5 me-2" width="30" alt="">
-                <span class="fw-bold text-light">MUSIC</span>
-            </a>
-            <button class="navbar-toggler bg-white border border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg  px-3">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Offcanvas toggle button (left side) -->
+            <button class="btn btn-outline-light me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#leftOffcanvas">
+                ☰
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-light" href="index3.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-light" href="#">Services</a></li>
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">More</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                        </ul> -->
-                    </li>
+
+            <!-- Logo and Text -->
+            <div class="d-flex align-items-center">
+                <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt="">
+                <span class="fw-bold text-white ms-2 h2">MUSIC</span>
+            </div>
+
+            <!-- Dropdown with image -->
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">
+                    <img src="image/switch.png" width="40" alt="User" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="index.html">Log Out</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
                 </ul>
             </div>
-            
         </div>
     </nav>
+
+    <!-- Offcanvas Menu (Left) -->
+    <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="leftOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled">
+                <li><a href="index3.html" class="text-white d-block mb-2 text-decoration-none"> 
+                    <img src="image/home.png" width="30px" alt="">
+                    Home</a></li>
+                <li><a href="index5.html" class="text-white d-block mb-2 text-decoration-none">
+                    <img src="image/customer-service.png" width="30px" alt="">
+                    Services</a></li>
+                <li><a href="index3.html#footer" class="text-white d-block mb-2 text-decoration-none">
+                    <img src="image/about.png" width="30px" alt="">
+                    About</a></li>
+                <li><a href="index3.html#footer" class="text-white d-block mb-2 text-decoration-none">
+                    <img src="image/contact-book.png" width="30px" alt="">
+                    Contact</a></li>
+            </ul>
+        </div>
+    </div>    
     <section>
         <div class="hero">
             <h1>Jot Simeon Studio</h1>
@@ -112,7 +138,7 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <h2>About Us</h2>
         <p>Jot Simeon Studio is a top-notch music production studio offering high-quality recordings and sound engineering services.</p>
         <div>

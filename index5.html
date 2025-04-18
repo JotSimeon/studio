@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jot_Studio</title>
+    <link rel="shortcut icon" href="image/jot1.jpeg" type="image">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
 </head>
 <style>
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(image/pexels-noah-erickson-97554-404280.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 900px;
+        /* height: 100vh; */
     }
+    nav {
+            background-color: #16213e;
+            border-bottom: 3px solid #e97727;
+        }
         section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(image/pexels-noah-erickson-97554-404280.jpg) center/cover;
-            height: 100vh;
-            display: flex;
+            /* display: flex; */
             color: white;
         }
         h2{
@@ -20,12 +36,62 @@
             color: #e97727;
         }
         h4 {
-            padding-left: 10px;
+            text-align: center;
         }
 </style>
 <body>
-    <section>
-        <nav>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg  px-3">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Offcanvas toggle button (left side) -->
+                <button class="btn btn-outline-light me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#leftOffcanvas">
+                    ☰
+                </button>
+    
+                <!-- Logo and Text -->
+                <div class="d-flex align-items-center">
+                    <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt="">
+                    <span class="fw-bold text-white ms-2 h2">MUSIC</span>
+                </div>
+    
+                <!-- Dropdown with image -->
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">
+                        <img src="image/switch.png" width="40" alt="User" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="index.html">Log Out</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Offcanvas Menu (Left) -->
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="leftOffcanvas">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title">Menu</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="list-unstyled">
+                    <li><a href="index3.html" class="text-white d-block mb-2 text-decoration-none"> 
+                        <img src="image/home.png" width="30px" alt="">
+                        Home</a></li>
+                    <li><a href="index5.html" class="text-white d-block mb-2 text-decoration-none">
+                        <img src="image/customer-service.png" width="30px" alt="">
+                        Services</a></li>
+                    <li><a href="index3.html#footer" class="text-white d-block mb-2 text-decoration-none">
+                        <img src="image/about.png" width="30px" alt="">
+                        About</a></li>
+                    <li><a href="index3.html#footer" class="text-white d-block mb-2 text-decoration-none">
+                        <img src="image/contact-book.png" width="30px" alt="">
+                        Contact</a></li>
+                </ul>
+            </div>
+        </div> 
+    <section class="mt-5">
             <h2>Features & Services</h2>
     <ul>
         <li>🎵 <strong>Recording & Production</strong> – State-of-the-art equipment for crisp and professional
@@ -44,7 +110,6 @@
     </ul>
     <h4>Whether you're a rising artist or an established musician,
         Jot Simeon Studio is the perfect place to craft your next hit! 🎶🔥</h4>
-        </nav>
     </section>
 
 </body>
