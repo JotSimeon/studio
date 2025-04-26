@@ -37,7 +37,7 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            /* text-align: center; */
         }
 
         .input-container {
@@ -98,15 +98,18 @@
         .links a:hover {
             text-decoration: underline;
         }
+        .center {
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <section class="jot">
         <div class="form-container">
-            <img class="rounded-5 mb-3" src="image/jot1.jpeg" width="67px" alt="Logo">
-            <h1>Login</h1>
-            <p>Welcome back! Log in to your account</p>
+            <div class="center"><img class="rounded-5 mb-3" src="image/jot1.jpeg" width="67px" alt="Logo"></div>
+            <h1 class="center">Login</h1>
+            <p class="center">Welcome back! Log in to your account</p>
             
             <div class="input-container" >
                 <img src="image/people.png" alt="User Icon">
@@ -115,21 +118,24 @@
 
             <div class="input-container">
                 <img src="image/unlock.png" alt="Password Icon">
-                <input type="password" id="passwordInput" placeholder="Password" class="styled-input">
+                <input type="password" id="enterPassword" placeholder="Password" class="styled-input">
             </div>
-            <div id="result"></div>
+            <label for="" class="show">
+                <input type="checkbox" onclick="showPassword()" class="show "> Show Password
+            </label>
+            <div class="center" id="result"></div>
             
-            <p class="mt-2 ">
-                <a class="text-decoration-none text-danger" href="#">Forgot password?</a>
+            <p class="mt-2 center">
+                <a class="text-decoration-none text-danger center" href="#">Forgot password?</a>
             </p>
             
-                <button class="btn-custom mt-3" onclick="checkPassword()">Login</button>
+                <button class="btn-custom mt-3 center" onclick="checkPassword()">Login</button>
             
             
             
             <div class="links mt-3 text-center flex-wrap">
                 <span>Don't have an account?</span>
-                <a class="text-decoration-none" href="index2.html">Create an Account</a>
+                <a class="text-decoration-none m-1" href="index2.html">Sign Up</a>
             </div>
         </div>
     </section>
@@ -137,7 +143,7 @@
 <script>
     function checkPassword() {
         // Get input values
-        let Password = document.getElementById("passwordInput").value;
+        let Password = document.getElementById("enterPassword").value;
         let user = document.getElementById("checkUsername").value;
         let result = document.getElementById("result");
 
@@ -175,8 +181,16 @@
         }
 
         // If all validations pass
-        alert("Login successful!");
         window.location.href = "index3.html"; // Redirect to another page
+        alert("Login successful!");
+    }
+    function showPassword(){
+        const passwordInput = document.getElementById('enterPassword')
+        if(passwordInput.type == "password"){
+        passwordInput.type = "type"
+        }else {
+            passwordInput.type ="password"
+        }
     }
 </script>
 </html>

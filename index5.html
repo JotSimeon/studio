@@ -38,6 +38,20 @@
         h4 {
             text-align: center;
         }
+        .h1 {
+        color: white;
+        text-align: center;
+    }
+    .color {
+        background-color: #16213e;
+        height: 70px;
+        text-align: center;
+        /* justify-content: center; */
+    }
+    .shad {
+        text-shadow: 0px 1px 3px black;
+        color: #16213e !important;
+    }
 </style>
 <body>
         <!-- Navbar -->
@@ -49,18 +63,18 @@
                 </button>
     
                 <!-- Logo and Text -->
-                <div class="d-flex align-items-center">
+                <!-- <div class="d-flex align-items-center">
                     <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt="">
                     <span class="fw-bold text-white ms-2 h2">MUSIC</span>
-                </div>
+                </div> -->
     
                 <!-- Dropdown with image -->
                 <div class="dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" data-bs-toggle="dropdown">
+                    <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">
                         <img src="image/switch.png" width="40" alt="User" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="index.html">Log Out</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="logOut()">Log Out</a></li>
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li><a class="dropdown-item" href="#">Settings</a></li>
                     </ul>
@@ -69,28 +83,39 @@
         </nav>
     
         <!-- Offcanvas Menu (Left) -->
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="leftOffcanvas">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title">Menu</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas offcanvas-start bg-white" tabindex="-1" id="leftOffcanvas">
+        <div class="offcanvas-header">
+            <!-- <h5 class="offcanvas-title">Menu</h5> -->
+             <!-- Logo and Text -->
+            <div class=" align-items-center offcanvas-title">
+                <!-- <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt=""> -->
+                <span class="fw-bold text-black ms-2 h1 shad">MUSIC </span>
             </div>
-            <div class="offcanvas-body">
-                <ul class="list-unstyled">
-                    <li><a href="index3.html" class="text-white d-block mb-2 text-decoration-none"> 
-                        <img src="image/home.png" width="30px" alt="">
-                        Home</a></li>
-                    <li><a href="index5.html" class="text-white d-block mb-2 text-decoration-none">
-                        <img src="image/customer-service.png" width="30px" alt="">
-                        Services</a></li>
-                    <li><a href="index3.html#footer" class="text-white d-block mb-2 text-decoration-none">
-                        <img src="image/about.png" width="30px" alt="">
-                        About</a></li>
-                    <li><a href="index3.html#footer" class="text-white d-block mb-2 text-decoration-none">
-                        <img src="image/contact-book.png" width="30px" alt="">
-                        Contact</a></li>
-                </ul>
+            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="color ">
+            <div class="d-flex gap-2 justify-content-center mt-3">
+                <img src="image/jot1.jpeg" class="rounded-5" width="40" alt="">
+            <h1 class="h1 ">Jot_Studio</h1>
             </div>
-        </div> 
+        </div>
+        <div class="offcanvas-body bg-body-secondary">
+            <ul class="list-unstyled">
+                <li><a href="index3.html" class="text-black d-block mb-2 text-decoration-none"> 
+                    <img src="image/home.png" width="30px" alt="">
+                    Home</a></li>
+                <li><a href="index5.html" class="text-black d-block mb-2 text-decoration-none">
+                    <img src="image/customer-service.png" width="30px" alt="">
+                    Services</a></li>
+                <li><a href="index3.html#footer" class="text-black d-block mb-2 text-decoration-none">
+                    <img src="image/about.png" width="30px" alt="">
+                    About</a></li>
+                <li><a href="index3.html#footer" class="text-black d-block mb-2 text-decoration-none">
+                    <img src="image/contact-book.png" width="30px" alt="">
+                    Contact</a></li>
+            </ul>
+        </div>
+    </div>  
     <section class="mt-5">
             <h2>Features & Services</h2>
     <ul>
@@ -113,4 +138,16 @@
     </section>
 
 </body>
+<script>
+      function logOut(event) {
+        const confirmLogout = confirm('Do you want to logout?');
+        if (confirmLogout) {
+            // User clicked OK: redirect to index4.html
+            window.location.href = 'index.html';
+        } else {
+            event.preventDefault(); // stops the button from doing anything
+        }
+    }
+
+</script>
 </html>

@@ -107,44 +107,44 @@
             <img class="rounded-5 mb-3" src="image/jot1.jpeg" width="65px" alt="Logo">
             <h1>Sign Up</h1>
             <p>Create an Account</p>
-            
+
             <div class="input-container">
                 <img src="image/people.png" alt="User Icon">
-                <input type="text" placeholder="Username" class="styled-input" id="checkUsername2" >
+                <input type="text" placeholder="Username" class="styled-input" id="checkUsername2">
             </div>
 
             <div class="input-container">
                 <img src="image/telephone.png" alt="Phone Icon">
-                <input type="text" placeholder="Phone Number" class="styled-input" id="phoneNumber" >
+                <input type="text" placeholder="Phone Number" class="styled-input" id="phoneNumber">
             </div>
 
             <div class="input-container">
                 <img src="image/email.png" alt="Email Icon">
-                <input type="email" placeholder="Email Address" class="styled-input" id="emailInput" >
+                <input type="email" placeholder="Email Address" class="styled-input" id="emailInput">
             </div>
 
             <div class="input-container">
                 <img src="image/unlock.png" alt="Password Icon">
-                <input type="password" placeholder="Password" class="styled-input" id="passwordInput1" >
+                <input type="password" placeholder="Password" class="styled-input" id="passwordInput1">
             </div>
 
             <div class="input-container">
                 <img src="image/unlock.png" alt="Confirm Password Icon">
-                <input type="password" placeholder="Confirm Password" class="styled-input" id="passwordInput2" >
+                <input type="password" placeholder="Confirm Password" class="styled-input" id="passwordInput2">
             </div>
             <div id="result"></div>
 
             <div class="text-start mt-2">
-                <input type="checkbox" id="terms">
+                <input type="checkbox" id="checkBox">
                 <label for="terms">Agree to terms of service</label>
             </div>
 
-                <button class="btn-custom mt-3" onclick="checkPassword()" >Sign Up</button>
+            <button class="btn-custom mt-3" onclick="checkPassword()" aria-required="">Sign Up</button>
 
 
             <div class="links mt-3">
                 <span>Already have an account?</span>
-                <a  class="text-decoration-none" href="index.html">Login</a>
+                <a class="text-decoration-none" href="index.html">Login</a>
             </div>
         </div>
     </section>
@@ -157,12 +157,13 @@
         let number = document.getElementById("phoneNumber").value;
         let email = document.getElementById("emailInput").value;
         let result = document.getElementById("result");
+        let check = document.getElementById('checkBox').Checked;
 
         result.innerHTML = "";  // Clear previous error messages
 
         // Username validation
         if (user == "") {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Username can't be empty.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">Required!</p>`;
             return;
         } else if (user.length < 4) {
             result.innerHTML = `<p style="color:red; font-size:12px;">Username must be at least 4 characters.</p>`;
@@ -171,25 +172,25 @@
 
         // Phone number validation
         if (number == "") {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Phone number can't be empty.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">Required!</p>`;
             return;
         } else if (number.length < 11) {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Phone number is invalid.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">❌ Phone number is invalid.</p>`;
             return;
         }
 
         // Email validation
         if (email == "") {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Email can't be empty.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">Required!</p>`;
             return;
         } else if (!/^([\w.%+-]+)@gmail\.com$/.test(email)) {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Invalid Gmail address.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">❌ Invalid Gmail address.</p>`;
             return;
         }
 
         // Password validation for password1
         if (password1 == "") {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Password can't be empty.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">Required!</p>`;
             return;
         } else if (password1.length < 8) {
             result.innerHTML = `<p style="color:red; font-size:12px;">Password must be at least 8 characters long.</p>`;
@@ -210,19 +211,23 @@
 
         // Password validation for password2
         if (password2 == "") {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Please confirm your password.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">Confirm your password.</p>`;
             return;
         } else if (password1 !== password2) {
-            result.innerHTML = `<p style="color:red; font-size:12px;">Passwords do not match.</p>`;
+            result.innerHTML = `<p style="color:red; font-size:12px;">❌ Passwords do not match.</p>`;
             return;
         }
 
+        if (!check) {
+            result.innerHTML = `<p style="color:red; font-size:12px;">❌ Please agree to terms before signing up.</p>`;
+            return;
+        }
         // If all checks pass, success message
         result.innerHTML = `<p style="color:green; font-size:12px;">☑️ Signup successful!</p>`;
 
         // Redirect to the next page after successful signup
-        alert("Signup successful!");
         window.location.href = "index3.html"; // Example redirect to another page
+        alert("Signup successful!");
     }
 </script>
 
