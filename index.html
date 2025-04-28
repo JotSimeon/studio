@@ -98,6 +98,7 @@
         .links a:hover {
             text-decoration: underline;
         }
+
         .center {
             text-align: center;
         }
@@ -110,10 +111,10 @@
             <div class="center"><img class="rounded-5 mb-3" src="image/jot1.jpeg" width="67px" alt="Logo"></div>
             <h1 class="center">Login</h1>
             <p class="center">Welcome back! Log in to your account</p>
-            
-            <div class="input-container" >
+
+            <div class="input-container">
                 <img src="image/people.png" alt="User Icon">
-                <input type="text" placeholder="Username" class="styled-input" id="checkUsername" >
+                <input type="text" placeholder="Username" class="styled-input" id="checkUsername">
             </div>
 
             <div class="input-container">
@@ -124,15 +125,15 @@
                 <input type="checkbox" onclick="showPassword()" class="show "> Show Password
             </label>
             <div class="center" id="result"></div>
-            
+
             <p class="mt-2 center">
                 <a class="text-decoration-none text-danger center" href="#">Forgot password?</a>
             </p>
-            
-                <button class="btn-custom mt-3 center" onclick="checkPassword()">Login</button>
-            
-            
-            
+
+            <button class="btn-custom mt-3 center" onclick="checkPassword()">Login</button>
+
+
+
             <div class="links mt-3 text-center flex-wrap">
                 <span>Don't have an account?</span>
                 <a class="text-decoration-none m-1" href="index2.html">Sign Up</a>
@@ -143,7 +144,7 @@
 <script>
     function checkPassword() {
         // Get input values
-        let Password = document.getElementById("enterPassword").value;
+        let password = document.getElementById("enterPassword").value;
         let user = document.getElementById("checkUsername").value;
         let result = document.getElementById("result");
 
@@ -160,37 +161,56 @@
         }
 
         // Password validation
-        if (Password == "") {
+        if (password == "") {
             result.innerHTML = `<p style="color: red; font-size:12px;">Password can't be empty.</p>`;
             return;
-        } else if (Password.length < 8) {
+        } else if (password.length < 8) {
             result.innerHTML = `<p style="color: red; font-size:12px;">Password must be at least 8 characters long.</p>`;
             return;
-        } else if (!/[A-Z]/.test(Password)) {
+        } else if (!/[A-Z]/.test(password)) {
             result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one uppercase letter.</p>`;
             return;
-        } else if (!/[a-z]/.test(Password)) {
+        } else if (!/[a-z]/.test(password)) {
             result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one lowercase letter.</p>`;
             return;
-        } else if (!/[0-9]/.test(Password)) {
+        } else if (!/[0-9]/.test(password)) {
             result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one number.</p>`;
             return;
-        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(Password)) {
+        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
             result.innerHTML = `<p style="color: red; font-size:12px;">Password must contain at least one special character.</p>`;
             return;
         }
 
-        // If all validations pass
-        window.location.href = "index3.html"; // Redirect to another page
-        alert("Login successful!");
-    }
-    function showPassword(){
-        const passwordInput = document.getElementById('enterPassword')
-        if(passwordInput.type == "password"){
-        passwordInput.type = "type"
-        }else {
-            passwordInput.type ="password"
+        // LocalStorage Handling
+
+        const savedUser = localStorage.getItem("savedUser");
+        const savedPassword = localStorage.getItem("savedPassword");
+
+        if (!savedUser && !savedPassword) {
+            // No user exists yet — save new user (first time only)
+            localStorage.setItem("savedUser", user);
+            localStorage.setItem("savedPassword", password);
+            alert("✅ First-time login: credentials saved!");
+            window.location.href = "index3.html";
+        } else {
+            // Compare entered credentials with saved credentials
+            if (user === savedUser && password === savedPassword) {
+                alert("☑️ Login successful!");
+                window.location.href = "index3.html";
+            } else {
+                alert("❌ Incorrect username or password. Access denied.");
+            }
         }
     }
+    function showPassword() {
+        const passwordInput = document.getElementById('enterPassword');
+        if (passwordInput.type == "password") {
+            passwordInput.type = "text";  // Not "type"
+        } else {
+            passwordInput.type = "password";
+        }
+    }
+
 </script>
+
 </html>
