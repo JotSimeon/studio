@@ -14,8 +14,11 @@
 
 </head>
 <style>
-    body {
+    body{
+        background-color: #1a1a2e;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .joy {
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(image/pexels-noah-erickson-97554-404280.jpg);
         background-size: cover;
         background-position: center;
@@ -63,96 +66,179 @@
     .rounded {
         border-radius: 100% !important;
     }
+      /* From Uiverse.io by AqFox */
+      .spinner {
+            width: 44px;
+            height: 44px;
+            animation: spinner-y0fdc1 2s infinite ease;
+            transform-style: preserve-3d;
+            margin-top: 350px;
+        }
+
+        .spinner>div {
+            background-color: rgba(232, 209, 162, 0.2);
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            border: 2px solid #ffbb00d8;
+        }
+
+        .loding {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .spinner div:nth-of-type(1) {
+            transform: translateZ(-22px) rotateY(180deg);
+        }
+
+        .spinner div:nth-of-type(2) {
+            transform: rotateY(-270deg) translateX(50%);
+            transform-origin: top right;
+        }
+
+        .spinner div:nth-of-type(3) {
+            transform: rotateY(270deg) translateX(-50%);
+            transform-origin: center left;
+        }
+
+        .spinner div:nth-of-type(4) {
+            transform: rotateX(90deg) translateY(-50%);
+            transform-origin: top center;
+        }
+
+        .spinner div:nth-of-type(5) {
+            transform: rotateX(-90deg) translateY(50%);
+            transform-origin: bottom center;
+        }
+
+        .spinner div:nth-of-type(6) {
+            transform: translateZ(22px);
+        }
+
+        @keyframes spinner-y0fdc1 {
+            0% {
+                transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+            }
+
+            50% {
+                transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+            }
+
+            100% {
+                transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+            }
+        }
 </style>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg  px-3">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Offcanvas toggle button (left side) -->
-            <button class="btn btn-outline-light me-3" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#leftOffcanvas">
-                ☰
-            </button>
-
-            <!-- Logo and Text -->
-            <!-- <div class="d-flex align-items-center">
-                    <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt="">
-                    <span class="fw-bold text-white ms-2 h2">MUSIC</span>
-                </div> -->
-
-            <!-- Dropdown with image -->
-            <div class="dropdown">
-                <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">
-                    <img src="image/switch.png" width="40" alt="User" class="rounded-circle">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#" onclick="logOut()">Log Out</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
+    <!-- From Uiverse.io by AqFox -->
+    <div class="loding">
+        <div class="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+<div id="main-content" style="display: none;">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg  px-3">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Offcanvas toggle button (left side) -->
+                <button class="btn btn-outline-light me-3" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#leftOffcanvas">
+                    ☰
+                </button>
+    
+                <!-- Logo and Text -->
+                <!-- <div class="d-flex align-items-center">
+                        <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt="">
+                        <span class="fw-bold text-white ms-2 h2">MUSIC</span>
+                    </div> -->
+    
+                <!-- Dropdown with image -->
+                <div class="dropdown">
+                    <a class="nav-link text-light" href="#" data-bs-toggle="dropdown">
+                        <img src="image/switch.png" width="40" alt="User" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" onclick="logOut()">Log Out</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Offcanvas Menu (Left) -->
+        <div class="offcanvas offcanvas-start bg-white " tabindex="-1" id="leftOffcanvas">
+            <div class="offcanvas-header">
+                <!-- <h5 class="offcanvas-title">Menu</h5> -->
+                <!-- Logo and Text -->
+                <div class=" align-items-center offcanvas-title">
+                    <!-- <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt=""> -->
+                    <span class="fw-bold text-black ms-2 h1 shad">MUSIC </span>
+                </div>
+                <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="color ">
+                <div class="d-flex gap-2 justify-content-center mt-3">
+                    <img src="image/jot1.jpeg" class="rounded" width="40" alt="">
+                    <h1 class="h1 ">Jot_Studio</h1>
+                </div>
+            </div>
+            <div class="offcanvas-body bg-body-secondary">
+                <ul class="list-unstyled">
+                    <li><a href="index3.html" class="text-black d-block mb-2 text-decoration-none">
+                            <img src="image/home.png" width="30px" alt="">
+                            Home</a></li>
+                    <li><a href="index5.html" class="text-black d-block mb-2 text-decoration-none">
+                            <img src="image/customer-service.png" width="30px" alt="">
+                            Services</a></li>
+                    <li><a href="index3.html#footer" class="text-black d-block mb-2 text-decoration-none">
+                            <img src="image/about.png" width="30px" alt="">
+                            About</a></li>
+                    <li><a href="index3.html#footer" class="text-black d-block mb-2 text-decoration-none">
+                            <img src="image/contact-book.png" width="30px" alt="">
+                            Contact</a></li>
                 </ul>
             </div>
         </div>
-    </nav>
-
-    <!-- Offcanvas Menu (Left) -->
-    <div class="offcanvas offcanvas-start bg-white" tabindex="-1" id="leftOffcanvas">
-        <div class="offcanvas-header">
-            <!-- <h5 class="offcanvas-title">Menu</h5> -->
-            <!-- Logo and Text -->
-            <div class=" align-items-center offcanvas-title">
-                <!-- <img src="image/jot1.jpeg" class="rounded-5" width="40  " alt=""> -->
-                <span class="fw-bold text-black ms-2 h1 shad">MUSIC </span>
-            </div>
-            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-        </div>
-        <div class="color ">
-            <div class="d-flex gap-2 justify-content-center mt-3">
-                <img src="image/jot1.jpeg" class="rounded" width="40" alt="">
-                <h1 class="h1 ">Jot_Studio</h1>
-            </div>
-        </div>
-        <div class="offcanvas-body bg-body-secondary">
-            <ul class="list-unstyled">
-                <li><a href="index3.html" class="text-black d-block mb-2 text-decoration-none">
-                        <img src="image/home.png" width="30px" alt="">
-                        Home</a></li>
-                <li><a href="index5.html" class="text-black d-block mb-2 text-decoration-none">
-                        <img src="image/customer-service.png" width="30px" alt="">
-                        Services</a></li>
-                <li><a href="index3.html#footer" class="text-black d-block mb-2 text-decoration-none">
-                        <img src="image/about.png" width="30px" alt="">
-                        About</a></li>
-                <li><a href="index3.html#footer" class="text-black d-block mb-2 text-decoration-none">
-                        <img src="image/contact-book.png" width="30px" alt="">
-                        Contact</a></li>
+        <section class="pt-5 joy">
+            <h2>Features & Services</h2>
+            <ul>
+                <li>🎵 <strong>Recording & Production</strong> – State-of-the-art equipment for crisp and professional
+                    recordings.</li>
+                <li>🎚 <strong>Mixing & Mastering</strong> – Industry-standard sound engineering for polished tracks.</li>
+                <li>🎼 <strong>Songwriting & Composition</strong> – Expert guidance for creating original music.</li>
+                <li>🎤 <strong>Voiceover & Podcasting</strong> – High-quality audio production for various media.</li>
+                <li>🎧 <strong>Beat Production</strong> – Custom beats and instrumentals tailored to artists' needs.</li>
             </ul>
-        </div>
-    </div>
-    <section class="mt-5">
-        <h2>Features & Services</h2>
-        <ul>
-            <li>🎵 <strong>Recording & Production</strong> – State-of-the-art equipment for crisp and professional
-                recordings.</li>
-            <li>🎚 <strong>Mixing & Mastering</strong> – Industry-standard sound engineering for polished tracks.</li>
-            <li>🎼 <strong>Songwriting & Composition</strong> – Expert guidance for creating original music.</li>
-            <li>🎤 <strong>Voiceover & Podcasting</strong> – High-quality audio production for various media.</li>
-            <li>🎧 <strong>Beat Production</strong> – Custom beats and instrumentals tailored to artists' needs.</li>
-        </ul>
-        <h2>Why Choose Jot Simeon Studio?</h2>
-        <ul class="">
-            <li>✔ Professional sound engineers with years of experience.</li>
-            <li>✔ A creative, inspiring environment for artists.</li>
-            <li>✔ High-end studio equipment and acoustic treatment.</li>
-            <li>✔ Affordable pricing for both beginners and professionals.</li>
-        </ul>
-        <h4>Whether you're a rising artist or an established musician,
-            Jot Simeon Studio is the perfect place to craft your next hit! 🎶🔥</h4>
-    </section>
+            <h2>Why Choose Jot Simeon Studio?</h2>
+            <ul class="">
+                <li>✔ Professional sound engineers with years of experience.</li>
+                <li>✔ A creative, inspiring environment for artists.</li>
+                <li>✔ High-end studio equipment and acoustic treatment.</li>
+                <li>✔ Affordable pricing for both beginners and professionals.</li>
+            </ul>
+            <h4>Whether you're a rising artist or an established musician,
+                Jot Simeon Studio is the perfect place to craft your next hit! 🎶🔥</h4>
+        </section>
+</div>
 
 </body>
 <script>
+       window.onload = function () {
+        setTimeout(function () {
+            document.querySelector('.spinner').style.display = 'none'; // Hide spinner
+            document.getElementById('main-content').style.display = 'block'; // Show form
+        }, 3000); // Delay in milliseconds (3 seconds)
+    };
     function logOut(event) {
         const confirmLogout = confirm('Do you want to logout?');
         if (confirmLogout) {
